@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     EditText et1,et2;
     Button btn_reg,btn_ent;
     RequestQueue requestQueue;
+    String nom_c;
 
 
 
@@ -41,12 +42,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 buscar("https://unoppressive-vibrat.000webhostapp.com/log.php?correo="+et1.getText()+"&contra="+et2.getText()+"");
+                nom_c = et1.getText().toString();
             }
         });
 
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent siguiente = new Intent(MainActivity.this , registro.class);
                 //siguiente.putExtra("usu", ban);
                 startActivity(siguiente);
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         //et2.setText(jsonObject.getString("contra"));
 
                         Intent siguiente = new Intent(MainActivity.this , agregar_ubi.class);
-                        //siguiente.putExtra("usu", ban);
+                        siguiente.putExtra("usu", nom_c);
                         startActivity(siguiente);
 
                         et1.setText("");

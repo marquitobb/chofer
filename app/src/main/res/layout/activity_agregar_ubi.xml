@@ -23,7 +23,7 @@
                 app:srcCompat="@drawable/mapa" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/et_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -51,26 +51,23 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/btn_can"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-<<<<<<< HEAD
-=======
                     android:background="@color/colorAccent"
->>>>>>> 1e6737b1fd6b457d7f7ace92f067653e23c2a99a
-                    android:text="Cancelar" />
+                    android:text="cancelar" />
+
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/btn_agre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-<<<<<<< HEAD
-=======
                     android:background="@color/colorAccent"
->>>>>>> 1e6737b1fd6b457d7f7ace92f067653e23c2a99a
-                    android:text="Agregar" />
+                    android:text="agregar"
+                    android:textColor="@color/colorPrimaryDark" />
+
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

@@ -16,17 +16,36 @@ import android.location.LocationProvider;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class agregar_ubi extends AppCompatActivity {
     TextView mensaje1;
     TextView mensaje2;
+    Button btn_can,btn_agre;
+    RequestQueue requestQueue;
+    EditText et_nombre;
+    String nom,usuar;
 
     String latitude;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +54,10 @@ public class agregar_ubi extends AppCompatActivity {
 
         mensaje1 = (TextView) findViewById(R.id.mensaje_id);
         mensaje2 = (TextView) findViewById(R.id.mensaje_id2);
+        et_nombre= (EditText)findViewById(R.id.et_nombre);
+
+        btn_agre = (Button)findViewById(R.id.btn_agre);
+        btn_can = (Button)findViewById(R.id.btn_can);
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -42,6 +65,22 @@ public class agregar_ubi extends AppCompatActivity {
         } else {
             locationStart();
         }
+
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+
+        if(b!=null) {
+            usuar= b.getString("usu");
+        }
+
+        btn_agre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar_ubi.php");
+                nom = et_nombre.getText().toString();
+
+            }
+        });
     }
 
     private void locationStart() {
@@ -148,6 +187,35 @@ public class agregar_ubi extends AppCompatActivity {
             }
         }
     }
+
+
+    private void ejecutarservicio(String URL){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "operacion exitosa", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("nombre",nom);
+                parametros.put("direccion",mensaje2.getText().toString());
+                parametros.put("correo",usuar);
+                parametros.put("lonlat",latitude);
+
+                return parametros;
+            }
+        };
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
 
 
 }
