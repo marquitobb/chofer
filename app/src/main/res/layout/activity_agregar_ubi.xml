@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".agregar_ubi">
 
     <RelativeLayout
@@ -18,7 +19,7 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_height="427dp"
+                android:layout_height="407dp"
                 app:srcCompat="@drawable/mapa" />
 
             <EditText
@@ -27,19 +28,22 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Nombre (Ubicacion)"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColorHint="#EEF3F3" />
 
             <TextView
                 android:id="@+id/mensaje_id2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColorHint="#00F3F1F1" />
 
             <TextView
                 android:id="@+id/mensaje_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColorHint="#00ECEBEB" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,6 +55,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                    android:background="@color/colorAccent"
+>>>>>>> 1e6737b1fd6b457d7f7ace92f067653e23c2a99a
                     android:text="Cancelar" />
 
                 <Button
@@ -58,6 +66,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                    android:background="@color/colorAccent"
+>>>>>>> 1e6737b1fd6b457d7f7ace92f067653e23c2a99a
                     android:text="Agregar" />
             </LinearLayout>
         </LinearLayout>
