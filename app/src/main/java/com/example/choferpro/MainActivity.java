@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         //et1.setText(jsonObject.getString("nombre"));
                         //et2.setText(jsonObject.getString("contra"));
 
-                        Intent siguiente = new Intent(MainActivity.this , registro.class);
+                        Intent siguiente = new Intent(MainActivity.this , agregar_ubi.class);
                         //siguiente.putExtra("usu", ban);
                         startActivity(siguiente);
 
