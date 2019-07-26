@@ -63,7 +63,7 @@ public class registro extends AppCompatActivity {
                 }*/
 
                 ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar.php");
-                Intent siguiente = new Intent(registro.this , MainActivity.class);
+                Intent siguiente = new Intent(registro.this , agregar_ubi.class);
                 startActivity(siguiente);
             }
         });
