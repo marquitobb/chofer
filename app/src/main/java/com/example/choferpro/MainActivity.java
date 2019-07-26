@@ -44,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent siguiente = new Intent(MainActivity.this , registro.class);
+                //siguiente.putExtra("usu", ban);
+                startActivity(siguiente);
+            }
+        });
+
     }
     private void buscar (String URL){
 
