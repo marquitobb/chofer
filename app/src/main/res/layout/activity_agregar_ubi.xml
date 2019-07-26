@@ -51,14 +51,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="CANCELAR" />
+                    android:text="Cancelar" />
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:text="Agregar" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

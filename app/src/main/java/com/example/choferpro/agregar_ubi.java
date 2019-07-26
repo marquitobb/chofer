@@ -26,6 +26,7 @@ public class agregar_ubi extends AppCompatActivity {
     TextView mensaje1;
     TextView mensaje2;
 
+    String latitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +82,8 @@ public class agregar_ubi extends AppCompatActivity {
                         loc.getLatitude(), loc.getLongitude(), 1);
                 if (!list.isEmpty()) {
                     Address DirCalle = list.get(0);
-                    mensaje2.setText("Mi direccion es: \n"
-                            + DirCalle.getAddressLine(0));
+                    mensaje2.setText(
+                             DirCalle.getAddressLine(0));
                 }
 
             } catch (IOException e) {
@@ -111,9 +112,8 @@ public class agregar_ubi extends AppCompatActivity {
 
             loc.getLatitude();
             loc.getLongitude();
-
-            String Text = "Mi ubicacion actual es: " + "\n Lat = "
-                    + loc.getLatitude() + "\n Long = " + loc.getLongitude();
+            latitude=loc.getLatitude()+", "+loc.getLongitude();
+            String Text = "\n Lat = " + loc.getLatitude() + "\n Long = " + loc.getLongitude();
             mensaje1.setText(Text);
             this.mainActivity.setLocation(loc);
         }
@@ -124,6 +124,7 @@ public class agregar_ubi extends AppCompatActivity {
         public void onProviderDisabled(String provider) {
             // Este metodo se ejecuta cuando el GPS es desactivado
             mensaje1.setText("GPS Desactivado");
+
         }
 
 
