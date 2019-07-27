@@ -69,10 +69,10 @@ public class agregar_ubi extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
 
-        if(b!=null) {
+
             usuar= b.getString("usu");
 
-        }
+
 
         btn_agre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +92,7 @@ public class agregar_ubi extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent siguiente = new Intent(agregar_ubi.this , ubicaciones.class);
+                siguiente.putExtra("usuar", usuar);
                 startActivity(siguiente);
 
             }

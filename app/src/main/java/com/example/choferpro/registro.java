@@ -14,8 +14,13 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +31,8 @@ public class registro extends AppCompatActivity {
     Button can,regis;
     RequestQueue requestQueue;
     String nom_ub;
+    static String corr;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,36 +47,29 @@ public class registro extends AppCompatActivity {
         can=(Button)findViewById(R.id.can);
         regis=(Button)findViewById(R.id.regis);
 
+
         regis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*if (et1.getText().toString().trim().length() == 0){
-                    Toast.makeText(getApplicationContext(), "ingresa un usuario", Toast.LENGTH_SHORT).show();
-                }
-                if (et2.getText().toString().trim().length() == 0){
-                    Toast.makeText(getApplicationContext(), "ingresa una contraseña", Toast.LENGTH_SHORT).show();
-                }
-                if (et3.getText().toString().trim().length() == 0){
-                    Toast.makeText(getApplicationContext(), "ingresa un numero", Toast.LENGTH_SHORT).show();
-                }
-                if (et4.getText().toString().trim().length() == 0){
-                    Toast.makeText(getApplicationContext(), "ingresa un correo", Toast.LENGTH_SHORT).show();
-                }
-                if (et1.getText().toString().trim().length() != 0 && et2.getText().toString().trim().length() != 0
-                        && et3.getText().toString().trim().length() != 0 && et4.getText().toString().trim().length() != 0){
 
-                    ejecutarservicio("https://pepelismc.000webhostapp.com/insertar.php");
-                    Intent siguiente = new Intent(registro.this , MainActivity.class);
-                    startActivity(siguiente);
+                buscar2("https://unoppressive-vibrat.000webhostapp.com/buscar_correo.php?correo="+et2.getText()+"");
+                /*
+                if (corr.equals(et2.getText().toString()) ){
+                    Toast.makeText(getApplicationContext(), "ese correo ya esta", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (et3.getText().toString().equals( et4.getText().toString())){
+                        ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar.php");
+                        nom_ub = et2.getText().toString();
+                        Intent siguiente = new Intent(registro.this , agregar_ubi.class);
+                        siguiente.putExtra("usu", nom_ub);
+                        startActivity(siguiente);
+                    }else {
+                        Toast.makeText(getApplicationContext(), "contaseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    }
+
                 }*/
 
 
-
-                ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar.php");
-                nom_ub = et2.getText().toString();
-                Intent siguiente = new Intent(registro.this , agregar_ubi.class);
-                siguiente.putExtra("usu", nom_ub);
-                startActivity(siguiente);
             }
         });
 
@@ -111,4 +111,69 @@ public class registro extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+    //aqui la busqueda del correo para ver si existe
+    private void buscar2 (String URL){
+
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+
+                        jsonObject = response.getJSONObject(i);
+                        //et1.setText(jsonObject.getString("nombre"));
+                        //et2.setText(jsonObject.getString("contra"));
+                        //corr = jsonObject.getString("correo");
+
+                        //et1.setText("");
+                        //et2.setText("");
+                        Toast.makeText(getApplicationContext(), "correo ya ingresado", Toast.LENGTH_SHORT).show();
+                        et2.setText("");
+
+                        /*
+                        if (et3.getText().toString().equals( et4.getText().toString())){
+                            ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar.php");
+                            nom_ub = et2.getText().toString();
+                            Intent siguiente = new Intent(registro.this , agregar_ubi.class);
+                            siguiente.putExtra("usu", nom_ub);
+                            startActivity(siguiente);
+                        }else {
+                            Toast.makeText(getApplicationContext(), "contaseñas no coinciden", Toast.LENGTH_SHORT).show();
+                        }
+                        */
+
+
+                    } catch (JSONException e) {
+                        //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "correo nuevo", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //Toast.makeText(getApplicationContext(), "ERROR de conexion al servidor",Toast.LENGTH_SHORT).show();
+                if (et3.getText().toString().equals( et4.getText().toString())){
+                    ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar.php");
+                    nom_ub = et2.getText().toString();
+                    Intent siguiente = new Intent(registro.this , agregar_ubi.class);
+                    siguiente.putExtra("usu", nom_ub);
+                    startActivity(siguiente);
+                }else {
+                    Toast.makeText(getApplicationContext(), "contaseñas no coinciden", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
+        );
+        requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+    }
+
+
+
 }

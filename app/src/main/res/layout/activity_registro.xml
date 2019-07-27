@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/et1"
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
         android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -20,7 +20,9 @@
         android:ems="10"
         android:hint="Nombre"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -43,7 +45,7 @@
 
     <EditText
         android:id="@+id/et3"
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
         android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -53,14 +55,16 @@
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/et4"
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
         android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -70,14 +74,16 @@
         android:ems="10"
         android:hint="Confirmar Contraseña"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/et2"
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
         android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -87,7 +93,9 @@
         android:ems="10"
         android:hint="Correo electronico"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

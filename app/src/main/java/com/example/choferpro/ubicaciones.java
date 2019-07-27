@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -58,6 +59,7 @@ public class ubicaciones extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent siguiente = new Intent(ubicaciones.this , agregar_ubi.class);
+                siguiente.putExtra("usu", nomu);
                 startActivity(siguiente);
 
             }
@@ -71,10 +73,19 @@ public class ubicaciones extends AppCompatActivity {
 
             }
         });
+
+        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                Toast.makeText(getApplicationContext(), "ubicacion "+pos, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
     public void EnviarRecibirDatos(String URL){
 
-        Toast.makeText(getApplicationContext(), "bienvenido a nuestros productos",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "estas son tus ubicaciones",Toast.LENGTH_SHORT).show();
         //Toast.makeText(getApplicationContext(), ""+URL, Toast.LENGTH_SHORT).show();
 
         RequestQueue queue = Volley.newRequestQueue(this);

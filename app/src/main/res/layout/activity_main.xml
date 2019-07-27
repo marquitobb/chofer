@@ -44,7 +44,7 @@
 
     <EditText
         android:id="@+id/et1"
-        android:layout_width="348dp"
+        android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -56,6 +56,7 @@
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,8 +64,8 @@
 
     <Button
         android:id="@+id/btn_reg"
-        android:layout_width="184dp"
-        android:layout_height="71dp"
+        android:layout_width="183dp"
+        android:layout_height="84dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="72dp"
@@ -81,7 +82,7 @@
 
     <EditText
         android:id="@+id/et2"
-        android:layout_width="345dp"
+        android:layout_width="match_parent"
         android:layout_height="63dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -91,7 +92,9 @@
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
