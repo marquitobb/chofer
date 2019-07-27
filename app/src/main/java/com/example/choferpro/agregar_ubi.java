@@ -42,7 +42,7 @@ public class agregar_ubi extends AppCompatActivity {
     Button btn_can,btn_agre;
     RequestQueue requestQueue;
     EditText et_nombre;
-    String nom,usuar;
+    String nom,usuar,kk,pp;
 
     String latitude;
 
@@ -71,6 +71,7 @@ public class agregar_ubi extends AppCompatActivity {
 
         if(b!=null) {
             usuar= b.getString("usu");
+
         }
 
         btn_agre.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +79,20 @@ public class agregar_ubi extends AppCompatActivity {
             public void onClick(View view) {
                 ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar_ubi.php");
                 nom = et_nombre.getText().toString();
+
+                Intent siguiente = new Intent(agregar_ubi.this , ubicaciones.class);
+                siguiente.putExtra("usuar", usuar);
+                startActivity(siguiente);
+
+            }
+        });
+
+        btn_can.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent siguiente = new Intent(agregar_ubi.this , ubicaciones.class);
+                startActivity(siguiente);
 
             }
         });

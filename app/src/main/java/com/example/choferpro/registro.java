@@ -25,7 +25,7 @@ public class registro extends AppCompatActivity {
     EditText et1,et2,et3,et4;
     Button can,regis;
     RequestQueue requestQueue;
-    String nom_c;
+    String nom_ub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +66,21 @@ public class registro extends AppCompatActivity {
 
 
                 ejecutarservicio("https://unoppressive-vibrat.000webhostapp.com/insertar.php");
-                nom_c = et2.getText().toString();
+                nom_ub = et2.getText().toString();
                 Intent siguiente = new Intent(registro.this , agregar_ubi.class);
-                siguiente.putExtra("usu", nom_c);
+                siguiente.putExtra("usu", nom_ub);
                 startActivity(siguiente);
             }
         });
 
+        can.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sig = new Intent(registro.this , MainActivity.class);
+                startActivity(sig);
+
+            }
+        });
 
 
     }

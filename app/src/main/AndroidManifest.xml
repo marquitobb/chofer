@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".agregar_ubi"></activity>
+        <activity android:name=".ubicaciones"></activity>
+        <activity android:name=".agregar_ubi" />
         <activity android:name=".registro" />
         <activity android:name=".MainActivity">
             <intent-filter>
